@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <h1>My Todo List</h1>
-    <TodoList></TodoList>
+    <div id="nav">
+      <router-link :to="{ name: 'home' }">Home</router-link>
+      <router-link :to="{ name: 'about' }">About</router-link>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TodoList from './components/TodoList'
-
 export default {
   name: 'app',
-  components: {
-    TodoList
-  }
+  components: {}
 }
 </script>
 
@@ -33,6 +32,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $vue-blue;
+}
+
+#nav {
+  display: flex;
+  justify-content: center;
+  a {
+    padding: 20px;
+  }
 }
 
 h1 {
