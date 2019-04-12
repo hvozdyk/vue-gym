@@ -7,22 +7,22 @@ export default {
   props: {
     value: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: event => this.$emit("input", event.target.value)
-      };
+        input: event => this.$emit('input', event.target.value)
+      }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/variables.scss";
+@import '../assets/variables.scss';
 
 .input {
   width: 100%;

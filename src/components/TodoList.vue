@@ -17,45 +17,45 @@
 </template>
 
 <script>
-import TodoListItem from "./TodoListItem.vue";
-import BaseInputText from "./BaseInputText.vue";
+import TodoListItem from './TodoListItem.vue'
+import BaseInputText from './BaseInputText.vue'
 
-let nextTodoId = 1;
+let nextTodoId = 1
 export default {
   components: { TodoListItem, BaseInputText },
   data() {
     return {
-      newTodoText: "",
+      newTodoText: '',
       todos: [
         {
           id: nextTodoId++,
-          text: "Learn Vue"
+          text: 'Learn Vue'
         },
         {
           id: nextTodoId++,
-          text: "Read recommendations"
+          text: 'Read recommendations'
         },
         {
           id: nextTodoId++,
-          text: "Try examples"
+          text: 'Try examples'
         }
       ]
-    };
+    }
   },
   methods: {
     addTodo() {
-      const text = this.newTodoText.trim();
+      const text = this.newTodoText.trim()
       if (text) {
         this.todos.push({
           id: nextTodoId++,
           text
-        });
-        this.newTodoText = "";
+        })
+        this.newTodoText = ''
       }
     },
     removeTodo(todoId) {
-      this.todos = this.todos.filter(({ id }) => id !== todoId);
+      this.todos = this.todos.filter(({ id }) => id !== todoId)
     }
   }
-};
+}
 </script>

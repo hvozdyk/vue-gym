@@ -6,18 +6,18 @@
 </template>
 
 <script>
-import TodoList from "./components/TodoList";
+import TodoList from './components/TodoList'
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     TodoList
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "./assets/variables.scss";
+@import './assets/variables.scss';
 
 *,
 *::before,
@@ -29,7 +29,7 @@ export default {
   max-width: 400px;
   margin: 0 auto;
   line-height: 1.4;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $vue-blue;
