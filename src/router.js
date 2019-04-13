@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home'
-import About from './views/About'
-import User from './views/User'
+import EventList from './views/EventList.vue'
+import EventShow from './views/EventShow.vue'
+import EventCreate from './views/EventCreate.vue'
 
 Vue.use(Router)
 
@@ -11,24 +11,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'event-list',
+      component: EventList
     },
     {
-      path: '/about-us',
-      name: 'about',
-      component: About,
-      alias: '/about'
-    },
-    {
-      path: '/user/:username',
-      name: 'user',
-      component: User,
+      path: '/event/:id',
+      name: 'event-show',
+      component: EventShow,
       props: true
     },
     {
-      path: '/info',
-      redirect: { name: 'about' }
+      path: '/user/create',
+      name: 'event-create',
+      component: EventCreate
     }
   ]
 })
