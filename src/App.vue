@@ -3,6 +3,9 @@
     <div id="nav">
       <router-link :to="{ name: 'home' }">Home</router-link>
       <router-link :to="{ name: 'about' }">About</router-link>
+      <router-link :to="{ name: 'user', params: { username: 'hvozd' } }"
+        >Hvozd</router-link
+      >
     </div>
     <router-view></router-view>
   </div>
