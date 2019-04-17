@@ -249,6 +249,24 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 5034179,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "food",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Street Food Fest",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
