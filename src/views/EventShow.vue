@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="event.id">
     <div class="event-header">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h1 class="title">{{ event.title }}</h1>
