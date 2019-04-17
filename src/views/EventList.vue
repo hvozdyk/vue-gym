@@ -41,7 +41,7 @@ export default {
     hasNextPage() {
       return this.event.eventsTotal > this.page * 3
     },
-    ...mapState(['event', 'eventsTotal', 'user'])
+    ...mapState(['event', 'user'])
   }
 }
 </script>
