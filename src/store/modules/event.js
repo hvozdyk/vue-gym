@@ -61,24 +61,16 @@ export const actions = {
         })
       })
   },
-  fetchEvent({ commit, dispatch, getters }, id) {
+  fetchEvent({ commit, getters }, id) {
     const storedEvent = getters.getEventById(id)
     if (storedEvent) {
       commit('SET_EVENT', storedEvent)
       return storedEvent
     } else {
-      return EventService.getEvent(id)
-        .then(res => {
-          commit('SET_EVENT', res.data)
-          return res.data
-        })
-        .catch(error => {
-          const notification = {
-            type: 'error',
-            message: 'There was a problem fetching event: ' + error.message
-          }
-          dispatch('notification/add', notification, { root: true })
-        })
+      return EventService.getEvent(id).then(res => {
+        commit('SET_EVENT', res.data)
+        return res.data
+      })
     }
   }
 }
