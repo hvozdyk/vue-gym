@@ -2,11 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import NProgress from 'nprogress'
 import store from '@/store/store'
-import EventList from './views/EventList.vue'
-import EventShow from './views/EventShow.vue'
-import EventCreate from './views/EventCreate.vue'
+import EventList from '@/views/EventList.vue'
+import EventShow from '@/views/EventShow.vue'
+import EventCreate from '@/views/EventCreate.vue'
 import NotFound from '@/views/NotFound.vue'
 import NetworkIssue from '@/views/NetworkIssue.vue'
+import Example from '@/views/Example.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ const router = new Router({
       path: '/user/create',
       name: 'event-create',
       component: EventCreate
+    },
+    {
+      path: '/example',
+      name: 'exmaple',
+      component: Example
     },
     {
       path: '/404',
