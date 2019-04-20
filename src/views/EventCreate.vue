@@ -6,6 +6,7 @@
         class="field"
         label="Select a category"
         v-model="event.category"
+        v-focus:select
         :options="categories"
         :class="{ error: $v.event.category.$error }"
         @blur="$v.event.category.$touch()"
