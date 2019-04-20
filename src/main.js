@@ -6,8 +6,10 @@ import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 import 'nprogress/nprogress.css'
 import Vuelidate from 'vuelidate'
+import { date } from '@/filters/date'
 
 Vue.use(Vuelidate)
+Vue.filter('date', date)
 
 const requireComponent = require.context(
   // The relative path of the components folder
