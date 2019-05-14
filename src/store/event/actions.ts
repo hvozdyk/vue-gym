@@ -1,31 +1,11 @@
-import EventService from '@/services/EventService.js'
+import EventService from '@/services/EventService'
+import { ActionTree } from 'vuex'
+import { EventState } from './types'
+import { RootState } from '@/store/types'
+import { Event } from '@/types/event'
 
-export const namespaced = true
-
-export const state = {
-  events: [],
-  eventsTotal: 0,
-  event: {},
-  perPage: 3
-}
-
-export const mutations = {
-  ADD_EVENT(state, event) {
-    state.events.push(event)
-  },
-  SET_EVENTS(state, events) {
-    state.events = events
-  },
-  SET_EVENTS_TOTAL(state, eventsTotal) {
-    state.eventsTotal = eventsTotal
-  },
-  SET_EVENT(state, event) {
-    state.event = event
-  }
-}
-
-export const actions = {
-  createEvent({ commit, dispatch }, event) {
+export const actions: ActionTree<EventState, RootState> = {
+  createEvent({ commit, dispatch }, event: Event) {
     return EventService.postEvent(event)
       .then(() => {
         commit('ADD_EVENT', event)
@@ -61,7 +41,7 @@ export const actions = {
         })
       })
   },
-  fetchEvent({ commit, getters }, id) {
+  fetchEvent({ commit, getters }, id: number) {
     const storedEvent = getters.getEventById(id)
     if (storedEvent) {
       commit('SET_EVENT', storedEvent)
@@ -72,11 +52,5 @@ export const actions = {
         return res.data
       })
     }
-  }
-}
-
-export const getters = {
-  getEventById: state => id => {
-    return state.events.find(event => event.id === id)
   }
 }

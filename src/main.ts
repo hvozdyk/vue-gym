@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store/store'
-import upperFirst from 'lodash/upperFirst'
-import camelCase from 'lodash/camelCase'
+import store from './store'
+import { upperFirst, camelCase } from 'lodash'
 import 'nprogress/nprogress.css'
 import Vuelidate from 'vuelidate'
 import { date } from '@/filters/date'
@@ -25,16 +24,17 @@ const requireComponent = require.context(
 requireComponent.keys().forEach(fileName => {
   // Get component config
   const componentConfig = requireComponent(fileName)
+  const extractFileName = (fN: any) => {
+    return fN
+      .split('/')
+      .pop()
+      .replace(/\.\w+$/, '')
+  }
 
   // Get PascalCase name of component
   const componentName = upperFirst(
-    camelCase(
-      // Gets the file name regardless of folder depth
-      fileName
-        .split('/')
-        .pop()
-        .replace(/\.\w+$/, '')
-    )
+    camelCase(extractFileName(fileName))
+    // Gets the file name regardless of folder depth
   )
 
   // Register component globally

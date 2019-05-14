@@ -1,21 +1,13 @@
 <template>
   <div>
     <h1>Event List for {{ user.user.name }}</h1>
-    <EventCard v-for="event in event.events" :key="event.id" :event="event" />
+    <EventCard v-for="event in event.events" :key="event.id" :event="event"/>
     <div class="pagination">
       <template v-if="page !== 1">
-        <router-link
-          :to="{ name: 'event-list', query: { page: page - 1 } }"
-          rel="next"
-          >Prev</router-link
-        >
+        <router-link :to="{ name: 'event-list', query: { page: page - 1 } }" rel="next">Prev</router-link>
       </template>
       <template v-if="hasNextPage">
-        <router-link
-          :to="{ name: 'event-list', query: { page: page + 1 } }"
-          rel="prev"
-          >Next</router-link
-        >
+        <router-link :to="{ name: 'event-list', query: { page: page + 1 } }" rel="prev">Next</router-link>
       </template>
     </div>
   </div>
@@ -24,7 +16,7 @@
 <script>
 import EventCard from '@/components/EventCard.vue'
 import { mapState } from 'vuex'
-import store from '@/store/store'
+import store from '@/store'
 
 function getPageEvents(routeTo, next) {
   const currentPage = parseInt(routeTo.query.page) || 1
