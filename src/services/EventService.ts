@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios, { AxiosPromise } from 'axios'
+import { Event } from '@/types/event'
 
 const apiClient = axios.create({
   baseURL: `http://localhost:3000`,
@@ -11,13 +12,13 @@ const apiClient = axios.create({
 })
 
 export default {
-  getEvents(perPage, page) {
+  getEvents(perPage: number, page: number): AxiosPromise<Event[]> {
     return apiClient.get(`/events?_limit=${perPage}&_page=${page}`)
   },
-  getEvent(id) {
+  getEvent(id: number): AxiosPromise<Event> {
     return apiClient.get('/events/' + id)
   },
-  postEvent(event) {
+  postEvent(event: Event): AxiosPromise<Event> {
     return apiClient.post('/events', event)
   }
 }
